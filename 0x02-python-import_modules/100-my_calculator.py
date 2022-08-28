@@ -1,27 +1,29 @@
 #!/usr/bin/python3
 if __name__ != "__main__":
-    exit(1)
-
-from calculator_1 import add, sub, mul, div
+    exit (1)
 from sys import argv
-
 argc = len(argv)
-a = int(argv[1])
-if argv[2] != '*':
-    b = int(argv[3])
-sign = argv[2]
-
 if argc != 4:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     exit(1)
-if sign == "+":
-    print("{:d} {:s} {:d} = {:d}".format(a, sign, b, add(a, b)))
-elif sign == "-":
-    print("{:d} {:s} {:d} = {:d}".format(a, sign, b, sub(a, b)))
-elif sign == '*':
-    print("{:d} {:s} {:d} = {:d}".format(a, sign, b, mul(a, int(argv[2]))))
-elif sign == "/":
-    print("{:d} {:s} {:d} = {:d}".format(a, sign, b, div(a, b)))
-else:
-    print("Unknown operator. Available operators: +, -, * and /")
-    exit(1)
+from calculator_1 import add, sub, mul, div
+a = int(argv[1])
+b = int(argv[3])
+sign = ["+", "-", "*", "/"]
+for j in enumerate(sign):
+    if argv[2] == sign[0]:
+        result = add(a, b)
+        break
+    elif argv[2] == sign[1]:
+        result = sub(a, b)
+        break
+    elif argv[2] == sign[2]:
+        result = mul(a, b)
+        break
+    elif argv[2] == sign[3]:
+        result = div(a, b)
+        break
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+print("{:d} {:s} {:d} = {:d}".format(a, argv[2], b, result)) 
