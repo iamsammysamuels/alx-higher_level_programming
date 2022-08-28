@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/pythonet number
+
 def add(a, b):
     """My addition function
 
