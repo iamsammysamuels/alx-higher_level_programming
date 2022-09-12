@@ -4,6 +4,7 @@
 def safe_print_integer(value):
     try:
         print("{:d}".format(value))
-        return True
+        status = True
     except:
-        return False
+        status = False
+    return (status)
