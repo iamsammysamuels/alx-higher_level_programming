@@ -6,9 +6,10 @@ class Square:
     """
 
     def __init__(self, size=0):
-        """The __init__ method for Square class
-        Args:            
-		size: (:obj: 'int', optional): A private instance size
+        """
+        The __init__ method for Square class
+        Argsuments:
+            size: (:obj: 'int', optional): A private instance size
         """
         self.__size = size
 

@@ -2,6 +2,9 @@
 
 class Square:
     """
-    An empty class
+    An empty class that defines the square class
+
+    Attributes:
+        empty.
     """
     pass

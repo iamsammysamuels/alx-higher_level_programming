@@ -12,7 +12,7 @@ class Square:
         Raises:
             TypeError: Exception if size is not an integer
             ValueError: Exception if size is less than 0
-        """ 
+        """
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
