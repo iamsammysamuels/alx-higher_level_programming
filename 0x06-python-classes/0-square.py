@@ -7,8 +7,5 @@ This module defines a Square class
 class Square:
     """
     An empty class that defines the square class
-
-    Attributes:
-        empty.
     """
     pass
