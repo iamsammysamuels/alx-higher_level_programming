@@ -1,10 +1,14 @@
 #!/usr/bin/pytho3
+# -*- coding: utf-8 -*-
+
 
 """
 This module defines a Square class
 
 Its implements value and type checks for its attributes
 """
+
+
 class Square:
     """Class Square that has attributes. Instantiation with size
     Attributes:
