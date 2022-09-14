@@ -3,58 +3,70 @@
 
 
 """
-This module defines a Square class
-Its implements value and type checks for its attributes
+This module defines a Singly linked list
 """
 
 
-class Square:
-    """Square implementation
-    """
-    def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+class Node:
+    def __init__(self, data, next_node=None):
+        """Defines a node for a singly linked list
+        """
+        self.data = data
+        self.next_node = next_node
 
     @property
-    def size(self):
-        return self.__size
+    def data(self):
+        return self.__data
 
-    @size.setter
-    def size(self, size):
-        if type(size) != int:
-            raise TypeError('size must be an integer')
-        elif size < 0:
-            raise ValueError('size must be >= 0')
-        self.__size = size
+    @data.setter
+    def data(self, value):
+        if type(value) != int:
+            raise TypeError('data must be an integer')
 
-    def area(self):
-        """calculates the square area
+        self.__data = value
+
+    @property
+    def next_node(self):
+        return self.__next_node
+
+    @next_node.setter
+    def next_node(self, value):
+        if value is not None and type(value) != Node:
+            raise TypeError('next_node must be a Node object')
+        self.__next_node = value
+
+
+class SinglyLinkedList:
+    def __init__(self):
+        """Defines the singly linked list
         """
-        return (self.size ** 2)
+        self.__head = None
 
-    def my_print(self):
-        """prints a square  with the corresponding size
-        """
-        if (self.__size == 0):
-            print('')
+    def sorted_insert(self, value):
+        if self.__head is None:
+            self.__head = Node(value)
         else:
-            for i in range(self.position[1]):
-                print('')
+            current = self.__head
+            previous = None
+            while current and value > current.data:
+                previous = current
+                current = current.next_node
+            if current is None:
+                previous.next_node = Node(value)
+            elif current is self.__head and previous is None:
+                self.__head = Node(value, current)
+            else:
+                newNode = Node(value, current)
+                previous.next_node = newNode
 
-            for i in range(self.size):
-                print(' ' * self.position[0] + '#' * self.size)
-
-    @propert
-    def position(self):
-        return self.__position
-
-    @position.setter
-    def position(self, position):
-        if type(position) != tuple or \
-            len(position) != 2 or \
-            not all(isinstance(el, int) for el in position) or \
-                not all(el >= 0 for el in position):
-
-            raise TypeError('position must be a tuple of 2 positive integers')
-
-        self.__position = position
+    def __repr__(self):
+        node = self.__head
+        txt = ''
+        while 1:
+            txt += str(node.data)
+            node = node.next_node
+            if node.next_node is None:
+                break
+            else:
+                txt += '\n'
+        return txt
