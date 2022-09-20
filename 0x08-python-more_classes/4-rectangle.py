@@ -18,6 +18,26 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
+    def __str__(self):
+        """Returns printable string representation of the rectangle
+        """
+        shade = ""
+        if self.height == 0 or self.width == 0:
+            return shade
+        else:
+            for row in range(self.height):
+                for column in range(self.width):
+                    shade += "#"
+                if row == (self.height - 1):
+                    continue
+                else:
+                    shade += "\n"
+            return shade
+    def __repr__(self):
+         """returns a string representation of the rectangle for reproduction
+         """
+         return "Rectangle({:d}, {:d})".format(self.width, self.height)
+    
     @property
     def width(self):
         """Gets the argument.
@@ -78,3 +98,18 @@ class Rectangle:
 
         else:
             self.__height = value
+
+    def area(self):
+        """Rreturns the area of the rectangle
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Returns the perimeter of the triangle or
+        zero if either the width or the height is zero.
+        """
+
+        if self.width == 0 or self.height == 0:
+            return 0
+        else:
+            return 2 * (self.width + self.height) 

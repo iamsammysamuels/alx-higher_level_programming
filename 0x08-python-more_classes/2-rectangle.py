@@ -78,3 +78,18 @@ class Rectangle:
 
         else:
             self.__height = value
+
+    def area(self):
+        """Rreturns the area of the rectangle
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Returns the perimeter of the triangle or
+        zero if either the width or the height is zero.
+        """
+
+        if self.width == 0 or self.height == 0:
+            return 0
+        else:
+            return 2 * (self.width + self.height)
