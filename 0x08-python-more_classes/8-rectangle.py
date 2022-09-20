@@ -7,9 +7,9 @@
 class Rectangle:
     """Defines a rectangle with height and width.
     """
-
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """Initialises the rectangle with the arguments values.
 
@@ -38,9 +38,10 @@ class Rectangle:
             return shade
 
     def __repr__(self):
-         """returns a string representation of the rectangle for reproduction
-         """
-         return "Rectangle({:d}, {:d})".format(self.width, self.height)
+        """returns a string representation of the rectangle for reproduction
+        """
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
+
     def __del__(self):
         """Prints an a statement whenever an object is deleted.
         """
@@ -122,7 +123,7 @@ class Rectangle:
             return 0
         else:
             return 2 * (self.width + self.height)
-    
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if type(rect_1) is not Rectangle:

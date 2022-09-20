@@ -35,9 +35,10 @@ class Rectangle:
             return shade
 
     def __repr__(self):
-         """returns a string representation of the rectangle for reproduction
-         """
-         return "Rectangle({:d}, {:d})".format(self.width, self.height)
+        """returns a string representation of the rectangle for reproduction
+        """
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
+
     def __del__(self):
         """Prints an a statement whenever an object is deleted.
         """
@@ -117,4 +118,4 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         else:
-            return 2 * (self.width + self.height) 
+            return 2 * (self.width + self.height)
