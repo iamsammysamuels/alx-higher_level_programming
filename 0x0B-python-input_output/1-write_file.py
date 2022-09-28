@@ -3,10 +3,9 @@
 """A module created by Samuel Ezeh
 On the 28th of sept 2022
 
-Creates a function that writes a string to 
+Creates a function that writes a string to
 a text file (UTF8) and returns the number of characters written
 """
-
 
 
 def write_file(filename="", text=""):
