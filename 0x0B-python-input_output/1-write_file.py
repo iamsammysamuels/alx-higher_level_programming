@@ -2,14 +2,12 @@
 
 """A module created by Samuel Ezeh
 On the 28th of sept 2022
-
 Creates a function that writes a string to
 a text file (UTF8) and returns the number of characters written
 """
 
 
 def write_file(filename="", text=""):
-    char_len = 0
     """
     Function to write a string to a file
 
@@ -19,7 +17,7 @@ def write_file(filename="", text=""):
 
         text (str): the text to be written to the file
 
-        Return: The number of characters written
+    Return: The number of characters written
     """
     with open(filename, mode="w", encoding="UTF-8") as f:
         char_len = f.write(text)
