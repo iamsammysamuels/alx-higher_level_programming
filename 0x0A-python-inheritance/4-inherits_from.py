@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""A module created by Samuel Ezeh
+"""Created by Samuel Ezeh
 On the 27th of sept 2022
 
 Implements  a function that returns True if the object
