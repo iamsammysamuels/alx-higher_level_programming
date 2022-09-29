@@ -16,4 +16,4 @@ def is_same_class(obj, a_class):
     Return:
         true if the objecect is an instance else, false
     """
-    return (isinstance(type(obj), a_class))
+    return (type(obj) is a_class)

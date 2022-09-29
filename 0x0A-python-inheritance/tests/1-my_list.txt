@@ -6,7 +6,8 @@ _____________________________________________________________________
 "Testing the print_sorted(self) function located in the MyList class"
 =====================================================================
 
-MyList = __import__("1-my_list.txt").MyList
+>>> import unittest
+>>> MyList = __import__('1-my_list').MyList
 
 "check for empty list"
 >>> mylist = MyList()
