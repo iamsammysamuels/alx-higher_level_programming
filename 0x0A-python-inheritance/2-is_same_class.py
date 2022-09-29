@@ -5,7 +5,6 @@ On the 27th of sept 2022
 """
 
 
-
 def is_same_class(obj, a_class):
     """A function to check if an object is an instance of a specified class
 
