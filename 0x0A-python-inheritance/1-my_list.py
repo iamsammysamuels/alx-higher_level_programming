@@ -5,7 +5,6 @@ On the 27th of sept 2022
 """
 
 
-
 class MyList(list):
     """Class that inherits from list"""
     def print_sorted(self):
