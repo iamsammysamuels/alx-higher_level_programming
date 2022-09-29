@@ -6,7 +6,6 @@ _____________________________________________________________________
 "Testing the print_sorted(self) function located in the MyList class"
 =====================================================================
 
->>> import unittest
 >>> MyList = __import__('1-my_list').MyList
 
 'module docstring'
