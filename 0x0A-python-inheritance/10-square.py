@@ -10,6 +10,7 @@ Implements the square class
 
 Rectangle = __import__("9-rectangle").Rectangle
 
+
 class Square(Rectangle):
     """
     A Square class shape, inheirts from Rectangle and BaseGeometry
