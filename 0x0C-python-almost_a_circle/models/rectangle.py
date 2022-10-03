@@ -4,9 +4,7 @@
 Created by Samuel Ezeh
 On the 2nd of oct. 2022
 """
-
-
-from models.base import Base as Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -25,10 +23,10 @@ class Rectangle(Base):
             id (int, optional): id of the instance
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
     
     @property
     def height(self):
@@ -37,10 +35,10 @@ class Rectangle(Base):
 
         Returns: The height of the Rectangle
         """
-        return self.__width
+        return self.__height
 
     @height.setter
-    def height(self, value):
+    def height(self, height):
         """
         Sets the height of the Rectangle
 
@@ -51,12 +49,12 @@ class Rectangle(Base):
             TypeError: If height is not an integer
             ValueError: If height is less than 1
         """
-        if type(value) != int:
+        if type(height) is not int:
             raise TypeError("height must be an integer")
-        elif value < 1:
+        elif height <= 0:
             raise ValueError("height must be > 0")
         else:
-            self.__height = value
+            self.__height = height
 
     @property
     def width(self):
@@ -79,9 +77,9 @@ class Rectangle(Base):
             TypeError: If width is not an integer
             ValueError: If width is less than 1
         """
-        if type(width) != int:
+        if type(width) is not int:
             raise TypeError("width must be an integer")
-        elif width < 1:
+        elif width <= 0:
             raise ValueError("width must be > 0")
         else:
             self.__width = width
@@ -93,10 +91,10 @@ class Rectangle(Base):
 
         Returns: x
         """
-        return self.x
+        return self.__x
     
     @x.setter
-    def x (self, x):
+    def x(self, x):
         """
         Sets x
 
@@ -107,7 +105,7 @@ class Rectangle(Base):
             TypeError: If x is not an integer
             ValueError: If x is less than 0
         """
-        if type(x) != int:
+        if type(x) is not int:
             raise TypeError("x must be an integer")
         elif x < 0:
             raise ValueError("x must be >= 0")
@@ -115,7 +113,7 @@ class Rectangle(Base):
             self.__x = x
 
     @property
-    def y (self):
+    def y(self):
         """
         Gets y
 
@@ -135,9 +133,73 @@ class Rectangle(Base):
             TypeError: If x is not an integer
             ValueError: If y is less tha 0
         """
-        if type(y) != int:
+        if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
         else:
             self.__y = y
+    
+    def area(self):
+        """
+        Implememts the area value of the Rectangle instance
+
+        Returns:
+            The area of the Rectangle instance
+        """
+        return self.__height * self.__width
+
+    def display(self):
+        """
+        that prints in stdout the Rectangle instance with the character #
+        """
+        for m in range(self.__y):
+            print()
+        for row in range(self.__height):
+            for n in range(self.__x):
+                print(" ", end="")
+            for column in range(self.__width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        """
+        Implements the string representation of the object
+
+        Returns:
+            The string representation of the object
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+    
+    def update(self, *args, **kwargs):
+        """
+        Update the class Rectangle and assigns an argument to each attribute
+
+        Attributes:
+            args (int): Variable argument number.
+        """
+        if args is not None and len(args) != 0:
+            for elm, arg in enumerate(args):
+                if elm == 0:
+                    self.id = arg
+                elif elm == 1:
+                    self.width = arg
+                elif elm == 2:
+                    self.height = arg
+                elif elm == 3:
+                    self.x = arg
+                elif elm == 4:
+                    self.y = arg
+        
+        elif kwargs is not None and len(kwargs) != 0:
+            for (key, value) in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
