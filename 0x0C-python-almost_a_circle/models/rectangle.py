@@ -203,3 +203,12 @@ class Rectangle(Base):
                     self.x = value
                 elif key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """
+        Implements the dictionary representation of class Square
+
+        Returns:
+            The dictionary representation class square
+        """
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
