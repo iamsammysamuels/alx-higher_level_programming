@@ -43,3 +43,37 @@ class Square(Rectangle):
             size (int, private): size
         """
         self.width = self.height = size
+
+    def update(self, *args, **kwargs):
+        """
+        Update the class Rectangle and assigns an argument to each attribute
+
+        Attributes:
+            args (int): Variable argument number
+            kwargs (int): Variable argument number with keywords
+        """
+        if args is not None and len(args) != 0:
+            for elm, arg in enumerate(args):
+                if elm == 0:
+                    self.id = arg
+                elif elm == 1:
+                    self.size = arg
+                elif elm == 2:
+                    self.x = arg
+                elif elm == 3:
+                    self.y = arg
+        elif kwargs is not None and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = vale
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of a Square
+
