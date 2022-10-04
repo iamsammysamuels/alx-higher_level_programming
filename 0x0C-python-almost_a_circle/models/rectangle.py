@@ -27,7 +27,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-    
+
     @property
     def height(self):
         """
@@ -72,7 +72,7 @@ class Rectangle(Base):
 
         Attribute:
             width (int, private): width
-        
+
         Raises:
             TypeError: If width is not an integer
             ValueError: If width is less than 1
@@ -92,7 +92,7 @@ class Rectangle(Base):
         Returns: x
         """
         return self.__x
-    
+
     @x.setter
     def x(self, x):
         """
@@ -128,7 +128,7 @@ class Rectangle(Base):
 
         Attribute:
             y (int, private): y
-        
+
         Raises:
             TypeError: If x is not an integer
             ValueError: If y is less tha 0
@@ -139,7 +139,7 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = y
-    
+
     def area(self):
         """
         Implememts the area value of the Rectangle instance
@@ -169,8 +169,10 @@ class Rectangle(Base):
         Returns:
             The string representation of the object
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
-    
+        string = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return string
+	
+ 
     def update(self, *args, **kwargs):
         """
         Update the class Rectangle and assigns an argument to each attribute
