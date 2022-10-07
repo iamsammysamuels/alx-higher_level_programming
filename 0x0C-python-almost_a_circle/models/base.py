@@ -56,7 +56,7 @@ class Base:
                 string_dict = cls.to_dictionary(elem)
                 string.append(string_dict)
             json_dict = cls.to_json_string(string)
-            with open(filename, "w", encoding='UTF-8') as file:
+            with open(filename, "w", encoding='utf-8') as file:
                 file.write(json_dict)
 
     @staticmethod
@@ -74,3 +74,39 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return "[]"
         return json.loads(json_string)
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """"
+        Implements an instance with all attributes already set
+
+        Arguments:
+            dictionary (dict): A double pointer to a dictionary
+
+        Returns:
+            An already set instance
+            """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+         Implements a list of instances
+
+         Returns:
+            A list of instances or an empty list if the file doesn’t exist
+        """
+        file_name = cls.__name__ + ".json"
+        with open(file_name, "r", encoding='utf-8') as file:
+            read_file = file.read()
+        dicts = cls.from_json_string(read_file)
+        lists = []
+        for values in dicts:
+            inst = cls.create(**values)
+            lists.append(inst)
+        return lists
