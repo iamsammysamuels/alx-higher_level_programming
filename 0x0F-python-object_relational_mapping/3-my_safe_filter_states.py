@@ -13,7 +13,7 @@ if __name__ == "__main__":
     state_name = argv[4]
 
     mydb = MySQLdb.connect(host="localhost", user=un,
-                       passwd=pw, port=3306, db=dbn)
+                           passwd=pw, port=3306, db=dbn)
     cur = mydb.cursor()
     no_rows = cur.execute("SELEct * FROM states WHERE states.name LIKE BINARY\
                           %s ORDER BY states.id ASC", (state_name,))
