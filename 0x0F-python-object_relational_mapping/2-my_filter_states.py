@@ -9,7 +9,7 @@ from sys import argv
 
 if __name__ == "__main__":
     mydb = MySQLdb.connect(host="localhost", user=argv[1],
-                       db=argv[3], port=3306, passwd=ar)
+                           db=argv[3], port=3306, passwd=argv[2])
     cur = mydb.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE BINARY\
                 '{:s}' ORDER BY states.id".format(argv[4]))
