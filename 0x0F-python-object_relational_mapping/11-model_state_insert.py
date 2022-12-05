@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all State objects that contain the letter a from the database
+Adds a State object to the database
 """
 
 from model_state import Base, State
@@ -14,11 +14,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name.contains('a'))\
-                    .order_by(State.id)
-    if states is not None:
-        for state in states:
-            print("{}: {}".format(state.id, state.name))
-    else:
-        print("Nothing")
+    new_state = State(name="Louisiana")
+    session.add(new_state)
+    session.commit()
+    print(new_state.id)
     session.close()
